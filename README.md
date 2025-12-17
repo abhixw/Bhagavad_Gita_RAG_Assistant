@@ -82,33 +82,34 @@ Qdrant Vector Database
 Bhagavad Gita (English PDF)
 
 🛠️ Tech Stack
-Backend & AI
+🔧 Backend & AI
 
 Python
 
-FastAPI
+FastAPI – API layer
 
-LangChain
+LangChain – RAG orchestration
 
-Groq LLM
+Groq LLM – Fast inference for reasoning
 
-HuggingFace Sentence Transformers
+HuggingFace Sentence Transformers – Text embeddings
 
-Qdrant (Vector Database)
+Qdrant – Vector database for semantic search
 
-Frontend
+🎨 Frontend
 
-Streamlit
+Streamlit – Interactive web UI
 
-Pillow (for images)
+Pillow – Image handling (hero image)
 
-Data
+📚 Data
 
 Bhagavad Gita – English (TTD Edition)
 
-Chunked & embedded for semantic retrieval
+Chunked and embedded for semantic retrieval
 
-📂 Project Structure
+Fully retrieval-based (no hallucinated content)   
+
 rag/
 │
 ├── assets/
@@ -125,8 +126,9 @@ rag/
 
 ⚙️ Installation & Setup
 1️⃣ Create Virtual Environment
+
 python -m venv venv
-source venv/bin/activate   # macOS/Linux
+source venv/bin/activate   # macOS / Linux
 
 2️⃣ Install Dependencies
 pip install -r requirements.txt
@@ -158,19 +160,19 @@ QDRANT_URL=http://localhost:6333
 
 📥 Index the Bhagavad Gita
 
-Run once to create embeddings:
+Run once to create vector embeddings:
 
 python index.py
 
 
-Output example:
+Sample Output:
 
 📄 Total pages loaded: 447
 ✂️ Total chunks created: 1851
 ✅ Indexing completed successfully.
 
 ▶️ Run the Application
-Start Backend
+🚀 Start Backend
 python -m uvicorn backend:app --reload
 
 
@@ -179,14 +181,16 @@ Backend runs at:
 http://127.0.0.1:8000
 
 
-Swagger UI:
+Swagger API Docs:
 
 http://127.0.0.1:8000/docs
-
-Start Frontend
+🎨 Start Frontend
+bash
+Copy code
 streamlit run app.py
+Open in browser:
 
-
-Open:
-
+arduino
+Copy code
 http://localhost:8501
+
