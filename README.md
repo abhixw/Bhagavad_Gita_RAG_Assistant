@@ -5,7 +5,7 @@ The system combines semantic search, LLM reasoning, and a themed UI to deliver t
 
 🌟 Key Features:
 
-🌅 Verse of the Day
+1) 🌅 Verse of the Day :
 
 Displays a daily Bhagavad Gita teaching
 
@@ -13,7 +13,7 @@ Deterministic: same verse for the entire day
 
 Fully retrieval-based (no hallucination)
 
-❓ Question Answering:
+2) ❓ Question Answering:
 
 Ask natural language questions such as:
 
@@ -25,7 +25,7 @@ Answers are strictly grounded in the Gita text
 
 Includes transparent source citations
 
-💭 Emotion-Based Guidance :
+3) 💭 Emotion-Based Guidance :
 
 Select how you feel:
 
@@ -47,7 +47,7 @@ Retrieves relevant teachings
 
 Provides reflective guidance from the Gita
 
-🧭 Life Phase Guidance :
+4) 🧭 Life Phase Guidance :
 
 Contextual wisdom based on life stage:
 
