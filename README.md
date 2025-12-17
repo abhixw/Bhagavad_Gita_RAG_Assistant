@@ -11,7 +11,7 @@ Displays a daily Bhagavad Gita teaching
 
 Deterministic: same verse for the entire day
 
-Fully retrieval-based (no hallucination)
+Fully retrieval-based 
 
 2) ❓ Question Answering:
 
