@@ -100,7 +100,7 @@ Qdrant – Vector database for semantic search
 
 Streamlit – Interactive web UI
 
-Pillow – Image handling (hero image)
+Pillow – Image handling 
 
 📚 Data
 
@@ -108,7 +108,7 @@ Bhagavad Gita – English (TTD Edition)
 
 Chunked and embedded for semantic retrieval
 
-Fully retrieval-based (no hallucinated content)   
+Fully retrieval-based 
 
 
 
