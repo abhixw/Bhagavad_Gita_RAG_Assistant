@@ -3,7 +3,8 @@
 A Retrieval-Augmented Generation (RAG) based AI assistant that provides grounded, source-cited guidance from the Bhagavad Gita (English – TTD edition).
 The system combines semantic search, LLM reasoning, and a themed UI to deliver timeless wisdom for modern life.
 
-🌟 Key Features
+🌟 Key Features:
+
 🌅 Verse of the Day
 
 Displays a daily Bhagavad Gita teaching
@@ -12,7 +13,7 @@ Deterministic: same verse for the entire day
 
 Fully retrieval-based (no hallucination)
 
-❓ Question Answering
+❓ Question Answering:
 
 Ask natural language questions such as:
 
@@ -24,7 +25,7 @@ Answers are strictly grounded in the Gita text
 
 Includes transparent source citations
 
-💭 Emotion-Based Guidance
+💭 Emotion-Based Guidance :
 
 Select how you feel:
 
@@ -46,7 +47,7 @@ Retrieves relevant teachings
 
 Provides reflective guidance from the Gita
 
-🧭 Life Phase Guidance
+🧭 Life Phase Guidance :
 
 Contextual wisdom based on life stage:
 
