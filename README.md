@@ -63,7 +63,7 @@ Maps real-world responsibilities to Gita principles such as duty, detachment, an
 
 🎨 Themed UI
 
-Krishna–Arjuna hero image
+Krishna–Arjuna image
 
 Saffron-themed color palette
 
