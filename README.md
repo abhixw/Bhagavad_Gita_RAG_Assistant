@@ -1,19 +1,21 @@
 🕉️ Bhagavad Gita Assistant (RAG-Powered)
 
-A Retrieval-Augmented Generation (RAG) based AI assistant that provides grounded, source-cited guidance from the Bhagavad Gita (English – TTD edition).
-The system combines semantic search, LLM reasoning, and a themed UI to deliver timeless wisdom for modern life.
+A Retrieval-Augmented Generation (RAG) based AI assistant that delivers grounded, explainable, and source-cited guidance from the Bhagavad Gita (English – TTD edition).
 
-🌟 Key Features:
+The system combines semantic search, LLM reasoning, and a themed, confidence-aware UI to present timeless wisdom for modern life — without hallucination.
 
-1) 🌅 Verse of the Day :
+🌟 Key Features
+1️⃣ 🌅 Verse of the Day
 
 Displays a daily Bhagavad Gita teaching
 
 Deterministic: same verse for the entire day
 
-Fully retrieval-based 
+Fully retrieval-based (no random generation)
 
-2) ❓ Question Answering:
+Includes confidence score and source provenance
+
+2️⃣ ❓ Question Answering
 
 Ask natural language questions such as:
 
@@ -21,11 +23,19 @@ What is karma yoga?
 
 What does the Gita say about duty?
 
+Highlights
+
 Answers are strictly grounded in the Gita text
 
-Includes transparent source citations
+Includes:
 
-3) 💭 Emotion-Based Guidance :
+📊 Confidence score
+
+📖 Page-level provenance
+
+Prevents hallucination through context-only answering
+
+3️⃣ 💭 Emotion-Based Guidance
 
 Select how you feel:
 
@@ -39,15 +49,15 @@ Select how you feel:
 
 😌 Peace
 
-The system:
+How it works
 
-Converts emotions into semantic intent
+Emotions are converted into semantic intent
 
-Retrieves relevant teachings
+Relevant verses are retrieved from Qdrant
 
-Provides reflective guidance from the Gita
+The assistant provides reflective guidance grounded in scripture
 
-4) 🧭 Life Phase Guidance :
+4️⃣ 🧭 Life Phase Guidance
 
 Contextual wisdom based on life stage:
 
@@ -59,17 +69,69 @@ Contextual wisdom based on life stage:
 
 🏠 Family Person
 
-Maps real-world responsibilities to Gita principles such as duty, detachment, and selfless action.
+Maps real-world responsibilities to Gita principles such as:
+
+Duty (Dharma)
+
+Detachment
+
+Selfless action (Karma Yoga)
+
+5️⃣ ⚖️ Wisdom Comparison Mode (Unique Feature)
+
+Compare two philosophical concepts side-by-side:
+
+Duty vs Desire
+
+Action vs Attachment
+
+Knowledge vs Devotion
+
+Why it’s special
+
+Uses the same RAG pipeline for both sides
+
+Shows confidence scores for each teaching
+
+Encourages critical thinking and reflection
+
+Rarely seen in student projects
+
+6️⃣ 🟢🟡🔴 Confidence-Aware Visual Feedback
+
+Each answer is visually styled based on confidence:
+
+🟢 High confidence – strong grounding
+
+🟡 Medium confidence – verify context
+
+🔴 Low confidence – limited textual support
+
+This improves trust, transparency, and explainability.
+
+7️⃣ 🌞🌙🕯️ Light / Dark / Meditation Mode
+
+A premium UI enhancement:
+
+🌞 Light Mode – traditional saffron theme
+
+🌙 Dark Mode – accessibility-friendly
+
+🕯️ Meditation Mode – distraction-free reflective UI
+
+No backend changes — purely UI-driven.
 
 🎨 Themed UI
 
-Krishna–Arjuna image
+Krishna–Arjuna hero imagery
 
-Saffron-themed color palette
+Saffron-inspired spiritual palette
 
-Card-based layouts for readability
+Card-based layouts for clarity
 
-Clean, minimal, and spiritual design
+Clean, minimal, and calm design
+
+Optimized for reflection, not overload
 
 🧠 Architecture Overview
 User (Streamlit UI)
@@ -80,7 +142,7 @@ RAG Engine
         ↓
 Qdrant Vector Database
         ↓
-Bhagavad Gita (English PDF)
+Bhagavad Gita (English – TTD PDF)
 
 🛠️ Tech Stack
 🔧 Backend & AI
@@ -101,7 +163,7 @@ Qdrant – Vector database for semantic search
 
 Streamlit – Interactive web UI
 
-Pillow – Image handling 
+Pillow – Image handling
 
 📚 Data
 
@@ -109,10 +171,4 @@ Bhagavad Gita – English (TTD Edition)
 
 Chunked and embedded for semantic retrieval
 
-Fully retrieval-based 
-
-
-
-
-
-
+Fully retrieval-based (no fine-tuning)
