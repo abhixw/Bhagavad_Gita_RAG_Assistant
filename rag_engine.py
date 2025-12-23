@@ -36,26 +36,37 @@ llm = ChatGroq(
 )
 
 # ==================================================
-# CORE RAG FUNCTION
+# CORE RAG FUNCTION (WITH CONFIDENCE + PROVENANCE)
 # ==================================================
 def ask_gita(question: str):
-    docs = vector_db.similarity_search(question, k=4)
+    results = vector_db.similarity_search_with_score(question, k=4)
 
-    if not docs:
+    if not results:
         return {
             "answer": "No relevant content found in the Bhagavad Gita.",
-            "source": None
+            "confidence": 0.0,
+            "provenance": []
         }
 
-    context = "\n\n".join(d.page_content for d in docs)
+    context_chunks = []
+    scores = []
+    provenance = []
 
-    pages = sorted({
-        d.metadata.get("page") + 1
-        for d in docs
-        if d.metadata.get("page") is not None
-    })
+    for doc, score in results:
+        context_chunks.append(doc.page_content)
+        scores.append(score)
 
-    page_range = f"{pages[0]}–{pages[-1]}" if pages else "N/A"
+        page = doc.metadata.get("page")
+        provenance.append({
+            "page": page + 1 if page is not None else "N/A",
+            "source": "Bhagavad Gita (TTD)",
+            "similarity_score": round(score, 3)
+        })
+
+    context = "\n\n".join(context_chunks)
+
+    # Confidence Score (normalized)
+    confidence = round((sum(scores) / len(scores)) * 100, 2)
 
     system_prompt = f"""
 You are a Bhagavad Gita assistant.
@@ -78,7 +89,8 @@ Context:
 
     return {
         "answer": response.content.strip(),
-        "source": f"Bhagavad Gita, pages {page_range}"
+        "confidence": confidence,
+        "provenance": provenance
     }
 
 # ==================================================
@@ -98,7 +110,8 @@ def ask_gita_by_emotion(emotion: str):
     if not query:
         return {
             "answer": "Invalid emotion selected.",
-            "source": None
+            "confidence": 0.0,
+            "provenance": []
         }
 
     return ask_gita(query)
@@ -119,18 +132,19 @@ def ask_gita_by_life_phase(phase: str):
     if not query:
         return {
             "answer": "Invalid life phase selected.",
-            "source": None
+            "confidence": 0.0,
+            "provenance": []
         }
 
     return ask_gita(query)
 
 # ==================================================
-# VERSE OF THE DAY (NEW FEATURE)
+# VERSE OF THE DAY (WITH CONFIDENCE + PROVENANCE)
 # ==================================================
 def get_verse_of_the_day():
     """
     Returns the same Bhagavad Gita teaching for the entire day.
-    Deterministic + retrieval-based.
+    Deterministic + retrieval-based + explainable.
     """
 
     today = datetime.date.today().isoformat()
@@ -147,15 +161,16 @@ def get_verse_of_the_day():
 
     query = random.choice(daily_queries)
 
-    docs = vector_db.similarity_search(query, k=1)
+    results = vector_db.similarity_search_with_score(query, k=1)
 
-    if not docs:
+    if not results:
         return {
             "verse": "No verse found for today.",
-            "source": None
+            "confidence": 0.0,
+            "provenance": []
         }
 
-    doc = docs[0]
+    doc, score = results[0]
     page = doc.metadata.get("page")
     page_number = page + 1 if page is not None else "N/A"
 
@@ -177,5 +192,11 @@ Content:
 
     return {
         "verse": response.content.strip(),
-        "source": f"Bhagavad Gita, page {page_number}"
+        "confidence": round(score * 100, 2),
+        "provenance": [{
+            "page": page_number,
+            "source": "Bhagavad Gita (TTD)",
+            "similarity_score": round(score, 3)
+        }]
     }
+
